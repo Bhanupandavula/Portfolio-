@@ -56,7 +56,9 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 2rem; font-weight: 700; color: white;
     border: 4px solid rgba(255,255,255,0.1); flex-shrink: 0; letter-spacing: -0.02em;
+    overflow: hidden;
   }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
   .sidebar-name { font-size: 1.15rem; font-weight: 700; color: var(--sidebar-heading); line-height: 1.3; }
   .sidebar-role { font-size: 0.8rem; color: var(--sidebar-accent); font-weight: 500; letter-spacing: 0.02em; }
   .available-badge {
@@ -174,6 +176,36 @@
   .stat-blue   { background: #eff6ff; color: #1d4ed8; }
   .stat-green  { background: #f0fdf4; color: #15803d; }
   .stat-purple { background: #f5f3ff; color: #6d28d9; }
+  .stat-orange { background: #fffbeb; color: #b45309; }
+
+  .project-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
+  .project-period { font-size: 0.62rem; font-weight: 600; color: var(--muted); background: var(--bg); border: 1px solid var(--border); padding: 0.18rem 0.5rem; border-radius: 4px; white-space: nowrap; }
+  .project-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin: 0.6rem 0 0.7rem; padding: 0.6rem; background: var(--bg); border-radius: 8px; }
+  .metric-item { text-align: center; padding: 0.2rem; }
+  .metric-val { font-size: 0.84rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .metric-lbl { font-size: 0.57rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.1rem; }
+
+  .card-viz { margin: 0.6rem 0 0.7rem; padding: 0.6rem 0.7rem; background: var(--bg); border-radius: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.28rem; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-lbl { font-size: 0.6rem; color: var(--muted); width: 58px; flex-shrink: 0; font-weight: 500; }
+  .bar-track { flex: 1; height: 5px; background: rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .bar-num { font-size: 0.62rem; font-weight: 700; color: var(--text); width: 38px; text-align: right; flex-shrink: 0; }
+  .dash-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; }
+  .dash-panel { height: 24px; border-radius: 4px; display: flex; align-items: center; padding: 0 0.45rem; font-size: 0.56rem; font-weight: 600; white-space: nowrap; overflow: hidden; }
+  .dp-blue   { background: #dbeafe; color: #1d4ed8; }
+  .dp-green  { background: #dcfce7; color: #15803d; }
+  .dp-purple { background: #ede9fe; color: #6d28d9; }
+  .dp-orange { background: #fef3c7; color: #b45309; }
+  .bf-blue   { background: linear-gradient(90deg,#2563eb,#38bdf8); }
+  .bf-green  { background: linear-gradient(90deg,#10b981,#34d399); }
+  .bf-purple { background: linear-gradient(90deg,#7c3aed,#a78bfa); }
+  .bf-orange { background: linear-gradient(90deg,#f59e0b,#fbbf24); }
+
+  .project-preview { margin: 0.6rem 0 0.7rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .project-preview img { width: 100%; height: 148px; object-fit: cover; object-position: top center; display: block; }
+  .project-preview svg { width: 100%; height: auto; display: block; }
 
   /* Skills */
   .skills-categories { display: flex; flex-direction: column; gap: 1rem; }
@@ -219,7 +251,7 @@
   <aside class="sidebar">
 
     <div class="avatar-wrap fade-in d1">
-      <div class="avatar">BK</div>
+      <div class="avatar"><img src="A28AE1C9-FE47-4ED2-BB19-6C053CFA54F2%20%281%29.png" alt="Bhanu Kiran Pandavula"/></div>
       <div class="sidebar-name">Bhanu Kiran Pandavula</div>
       <div class="sidebar-role">AI &amp; Data Engineer</div>
       <span class="available-badge">Open to Work</span>
@@ -230,7 +262,7 @@
       <div class="contact-list">
         <div class="contact-item">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="13" height="13" fill="currentColor"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></div>
-          <span>Irving, TX &nbsp;·&nbsp; Frisco, TX</span>
+          <span>Richmond, Houston, TX</span>
         </div>
         <div class="contact-item">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="13" height="13" fill="currentColor"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></div>
@@ -246,7 +278,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="13" height="13" fill="currentColor"><path d="M256 48H128V16c0-8.8 7.2-16 16-16h96c8.8 0 16 7.2 16 16V48zM64 48C28.7 48 0 76.7 0 112V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V112c0-35.3-28.7-64-64-64H288v16c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V48H64zm80 192a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM94.3 332.8c5.2-14.3 18.8-24.8 34.8-24.8h126c16 0 29.7 10.5 34.8 24.8C305.4 344.2 320 361.2 320 381.3v2.7c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-2.7c0-20.1 14.6-37.1 30.3-48.5z"/></svg></div>
-          <span>OPT Status &nbsp;·&nbsp; H-1B Ready</span>
+          <span>On OPT</span>
         </div>
       </div>
     </div>
@@ -261,7 +293,7 @@
       <div class="edu-item">
         <div class="edu-degree">BE, Mechanical Engineering</div>
         <div class="edu-school">Vignan University, India</div>
-        <div class="edu-year">2016–2020</div>
+        <div class="edu-year">GPA 2.78 / 4.0 &nbsp;·&nbsp; 2016–2020</div>
       </div>
     </div>
 
@@ -380,44 +412,340 @@
       </div>
       <div class="projects-grid">
 
+        <!-- DAD -->
         <div class="project-card card-blue">
-          <div class="project-icon-wrap icon-bg-blue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></div>
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-blue" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></div>
+            <span class="project-period">2025 – 2026</span>
+          </div>
           <div class="project-name">Document Anomaly Detection (DAD)</div>
           <div class="project-desc">Multi-engine OCR fraud detection platform using Google Vision, PaddleOCR &amp; Mindee with ML-based anomaly classification and Streamlit UI.</div>
+          <div class="card-viz">
+            <div class="bar-row"><span class="bar-lbl">Precision</span><div class="bar-track"><div class="bar-fill bf-blue" style="width:91%"></div></div><span class="bar-num">91%</span></div>
+            <div class="bar-row"><span class="bar-lbl">Recall</span><div class="bar-track"><div class="bar-fill bf-blue" style="width:83%"></div></div><span class="bar-num">83%</span></div>
+            <div class="bar-row"><span class="bar-lbl">F1 Score</span><div class="bar-track"><div class="bar-fill bf-blue" style="width:87%"></div></div><span class="bar-num">~87%</span></div>
+          </div>
           <div class="project-stats">
-            <span class="project-stat stat-blue">91% Precision</span>
-            <span class="project-stat stat-green">83% Recall</span>
+            <span class="project-stat stat-blue">Google Vision</span>
+            <span class="project-stat stat-green">PaddleOCR</span>
+            <span class="project-stat stat-purple">Mindee</span>
           </div>
         </div>
 
+        <!-- Xforia Hiring App -->
         <div class="project-card card-green">
-          <div class="project-icon-wrap icon-bg-green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor"><path d="M224 0a128 128 0 1 1 0 256A128 128 0 1 1 224 0zM178.3 304h91.4c11.8 0 23.4 1.2 34.5 3.3c-2.1 18.5 7.4 35.6 21.8 44.8c-16.6 10.2-34.8 17.7-54.1 21.7l0 .2c0 29.9-7.8 55.5-21.4 73.6c-9.3 12.4-22.1 21.5-37.5 21.5c-23.5 0-51-21.8-51-73.6L162.9 373c-19.3-4-37.5-11.5-54.1-21.7c14.3-9.2 23.8-26.2 21.8-44.8c11.1-2.1 22.7-3.3 34.5-3.3H178.3zM0 304C0 271.7 26.7 245 59.7 245H104c1.4 0 2.8 0 4.2 .1c-1.4 5.6-2.2 11.5-2.2 17.6c0 22.2 10.2 42.1 26.3 55.1C120.8 344.5 112 374.2 112 400c-5.6 1.9-11.6 2.9-17.9 2.9H59.7C26.7 402.9 0 376.2 0 343.9V304zm512 48c0-25.8-8.8-55.5-20.3-82.3c16.1-13 26.3-32.9 26.3-55.1c0-6.1-.8-11.9-2.2-17.6c1.4 0 2.8-.1 4.2-.1h44.3c32.9 0 59.7 26.7 59.7 59.3v39.9c0 32.3-26.7 59-59.7 59H529.9c-6.3 0-12.3-1-17.9-2.9zm-96-166.8c0-8.5 6.9-15.4 15.4-15.4c27.6 0 50 22.4 50 50c0 8.5-6.9 15.4-15.4 15.4c-5.8 0-11-3.2-13.7-8.3c-3-5.7-5.3-12.1-6.7-18.9c-1.1-5.5-5.5-9.9-11-11c-6.8-1.4-13.2-3.8-18.9-6.7c-5.1-2.7-8.3-7.9-8.3-13.7c0-8.5 6.9-15.4 15.4-15.4z"/></svg></div>
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-green" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor"><path d="M144 160A80 80 0 1 0 144 0a80 80 0 1 0 0 160zm368 0A80 80 0 1 0 512 0a80 80 0 1 0 0 160zM0 298.7C0 310.4 9.6 320 21.3 320H234.7c.2 0 .4 0 .7 0c-26.6-23.5-43.3-57.8-43.3-96c0-7.6 .7-15 1.9-22.3c-13.6-6.3-28.7-9.7-44.6-9.7H106.7C47.8 192 0 239.8 0 298.7zM405.3 192H373.3c-15.9 0-31 3.5-44.6 9.7c1.3 7.2 1.9 14.7 1.9 22.3c0 38.2-16.8 72.5-43.3 96c.2 0 .4 0 .7 0H618.7c11.8 0 21.3-9.6 21.3-21.3C640 239.8 592.2 192 533.3 192H405.3zM224 224c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144s-144 64.5-144 144z"/></svg></div>
+            <span class="project-period">2025 – Present</span>
+          </div>
+          <div class="project-name">Xforia Hiring Application</div>
+          <div class="project-desc">Internal AI-powered hiring platform at Xforia Inc. — featuring candidate sourcing automation, resume screening, CEIPAL API integration, and end-to-end applicant tracking system.</div>
+          <div class="card-viz">
+            <div class="dash-panels">
+              <div class="dash-panel dp-green">AI Sourcing</div>
+              <div class="dash-panel dp-green">Resume Screen</div>
+              <div class="dash-panel dp-green">CEIPAL Sync</div>
+              <div class="dash-panel dp-green">ATS Pipeline</div>
+            </div>
+          </div>
+          <div class="project-stats">
+            <span class="project-stat stat-green">Python</span>
+            <span class="project-stat stat-blue">CEIPAL API</span>
+            <span class="project-stat stat-purple">ATS</span>
+          </div>
+        </div>
+
+        <!-- Talent Acquisition -->
+        <div class="project-card card-purple">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-purple" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor"><path d="M224 0a128 128 0 1 1 0 256A128 128 0 1 1 224 0zM178.3 304h91.4c11.8 0 23.4 1.2 34.5 3.3c-2.1 18.5 7.4 35.6 21.8 44.8c-16.6 10.2-34.8 17.7-54.1 21.7l0 .2c0 29.9-7.8 55.5-21.4 73.6c-9.3 12.4-22.1 21.5-37.5 21.5c-23.5 0-51-21.8-51-73.6L162.9 373c-19.3-4-37.5-11.5-54.1-21.7c14.3-9.2 23.8-26.2 21.8-44.8c11.1-2.1 22.7-3.3 34.5-3.3H178.3zM0 304C0 271.7 26.7 245 59.7 245H104c1.4 0 2.8 0 4.2 .1c-1.4 5.6-2.2 11.5-2.2 17.6c0 22.2 10.2 42.1 26.3 55.1C120.8 344.5 112 374.2 112 400c-5.6 1.9-11.6 2.9-17.9 2.9H59.7C26.7 402.9 0 376.2 0 343.9V304zm512 48c0-25.8-8.8-55.5-20.3-82.3c16.1-13 26.3-32.9 26.3-55.1c0-6.1-.8-11.9-2.2-17.6c1.4 0 2.8-.1 4.2-.1h44.3c32.9 0 59.7 26.7 59.7 59.3v39.9c0 32.3-26.7 59-59.7 59H529.9c-6.3 0-12.3-1-17.9-2.9zm-96-166.8c0-8.5 6.9-15.4 15.4-15.4c27.6 0 50 22.4 50 50c0 8.5-6.9 15.4-15.4 15.4c-5.8 0-11-3.2-13.7-8.3c-3-5.7-5.3-12.1-6.7-18.9c-1.1-5.5-5.5-9.9-11-11c-6.8-1.4-13.2-3.8-18.9-6.7c-5.1-2.7-8.3-7.9-8.3-13.7c0-8.5 6.9-15.4 15.4-15.4z"/></svg></div>
+          </div>
           <div class="project-name">Talent Acquisition Automation</div>
           <div class="project-desc">Comprehensive recruitment automation system with CEIPAL API integration, resume parsing, ATS optimization, and automated candidate workflow management.</div>
+          <div class="card-viz">
+            <div class="dash-panels">
+              <div class="dash-panel dp-purple">Candidate Match</div>
+              <div class="dash-panel dp-purple">Auto Outreach</div>
+              <div class="dash-panel dp-purple">Resume Parser</div>
+              <div class="dash-panel dp-purple">ATS Workflow</div>
+            </div>
+          </div>
           <div class="project-stats">
-            <span class="project-stat stat-green">CEIPAL API</span>
+            <span class="project-stat stat-purple">CEIPAL API</span>
             <span class="project-stat stat-blue">Auto Workflows</span>
           </div>
         </div>
 
-        <div class="project-card card-purple">
-          <div class="project-icon-wrap icon-bg-purple"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor"><path d="M535 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l64 64c9.4 9.4 9.4 24.6 0 33.9L569 169c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L384 112c-13.3 0-24-10.7-24-24s10.7-24 24-24l208 0 23-23zM105 377c9.4 9.4 9.4 24.6 0 33.9L41 475c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L24 418C10.7 418 0 407.3 0 394s10.7-24 24-24l208 0 23-23c9.4-9.4 24.6-9.4 33.9 0z"/></svg></div>
+        <!-- Check Processing -->
+        <div class="project-card card-orange">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-orange" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor"><path d="M535 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l64 64c9.4 9.4 9.4 24.6 0 33.9L569 169c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L384 112c-13.3 0-24-10.7-24-24s10.7-24 24-24l208 0 23-23zM105 377c9.4 9.4 9.4 24.6 0 33.9L41 475c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L24 418C10.7 418 0 407.3 0 394s10.7-24 24-24l208 0 23-23c9.4-9.4 24.6-9.4 33.9 0z"/></svg></div>
+          </div>
           <div class="project-name">Check Processing System</div>
           <div class="project-desc">Intelligent check and transaction analysis platform with advanced OCR extraction, fraud scoring, and real-time anomaly flagging for financial documents.</div>
+          <div class="card-viz">
+            <div class="dash-panels">
+              <div class="dash-panel dp-orange">OCR Extract</div>
+              <div class="dash-panel dp-orange">Fraud Score</div>
+              <div class="dash-panel dp-orange">Anomaly Flag</div>
+              <div class="dash-panel dp-orange">Real-time Alert</div>
+            </div>
+          </div>
           <div class="project-stats">
-            <span class="project-stat stat-purple">Real-time</span>
+            <span class="project-stat stat-orange">Real-time</span>
             <span class="project-stat stat-blue">ML Scoring</span>
           </div>
         </div>
 
-        <div class="project-card card-orange">
-          <div class="project-icon-wrap icon-bg-orange"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zm96 96c0-17.7 14.3-32 32-32l192 0c17.7 0 32 14.3 32 32s-14.3 32-32 32H160c-17.7 0-32-14.3-32-32zm32 64H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H160c-17.7 0-32-14.3-32-32s14.3-32 32-32zm0 96H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H160c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></div>
+        <!-- Interactive Dashboard -->
+        <div class="project-card card-blue">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-blue" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zm96 96c0-17.7 14.3-32 32-32l192 0c17.7 0 32 14.3 32 32s-14.3 32-32 32H160c-17.7 0-32-14.3-32-32zm32 64H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H160c-17.7 0-32-14.3-32-32s14.3-32 32-32zm0 96H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H160c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></div>
+          </div>
           <div class="project-name">Interactive Data Visualization Dashboard</div>
           <div class="project-desc">Multi-source analytics dashboard using Streamlit, Plotly, and Power BI — featuring real-time KPI tracking, drill-down charts, trend analysis, and dynamic filtering.</div>
+          <div class="project-preview">
+            <svg viewBox="0 0 280 158" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+              <rect width="280" height="158" fill="#1e293b" rx="5"/>
+              <rect width="280" height="22" fill="#0f172a" rx="5"/><rect x="0" y="17" width="280" height="5" fill="#0f172a"/>
+              <text x="10" y="14.5" font-size="6.5" fill="#f1f5f9" font-weight="700">ANALYTICS DASHBOARD</text>
+              <text x="210" y="14.5" font-size="5.5" fill="#64748b">Streamlit · Plotly · Power BI</text>
+              <rect x="8" y="26" width="59" height="28" rx="3" fill="#0f172a"/><text x="37" y="37" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">REVENUE</text><text x="37" y="49" font-size="11" fill="#38bdf8" text-anchor="middle" font-weight="700">$2.4M</text>
+              <rect x="72" y="26" width="59" height="28" rx="3" fill="#0f172a"/><text x="101" y="37" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">ORDERS</text><text x="101" y="49" font-size="11" fill="#34d399" text-anchor="middle" font-weight="700">18.2k</text>
+              <rect x="136" y="26" width="59" height="28" rx="3" fill="#0f172a"/><text x="165" y="37" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">CONVERSION</text><text x="165" y="49" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="700">3.7%</text>
+              <rect x="200" y="26" width="72" height="28" rx="3" fill="#0f172a"/><text x="236" y="37" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">AVG ORDER</text><text x="236" y="49" font-size="11" fill="#a78bfa" text-anchor="middle" font-weight="700">$131</text>
+              <rect x="8" y="58" width="176" height="62" rx="3" fill="#0f172a"/>
+              <text x="16" y="68" font-size="5.5" fill="#475569" font-weight="600">MONTHLY TREND</text>
+              <defs><linearGradient id="tg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/><stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+              <polygon points="20,112 40,105 60,108 80,97 100,100 120,88 140,85 160,80 176,112" fill="url(#tg1)"/>
+              <polyline points="20,105 40,99 60,103 80,92 100,95 120,83 140,80 160,75" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linejoin="round"/>
+              <line x1="16" y1="112" x2="176" y2="112" stroke="#1e293b" stroke-width="0.5"/>
+              <rect x="189" y="58" width="83" height="62" rx="3" fill="#0f172a"/>
+              <text x="197" y="68" font-size="5.5" fill="#475569" font-weight="600">BY CATEGORY</text>
+              <rect x="197" y="96" width="9" height="14" rx="1" fill="#38bdf8"/><rect x="209" y="86" width="9" height="24" rx="1" fill="#34d399"/><rect x="221" y="81" width="9" height="29" rx="1" fill="#f59e0b"/><rect x="233" y="90" width="9" height="20" rx="1" fill="#a78bfa"/><rect x="245" y="94" width="9" height="16" rx="1" fill="#f472b6"/>
+              <line x1="197" y1="112" x2="256" y2="112" stroke="#1e293b" stroke-width="0.5"/>
+              <rect x="8" y="124" width="264" height="26" rx="3" fill="#0f172a"/>
+              <text x="16" y="134" font-size="5" fill="#475569" font-weight="600">DYNAMIC FILTERS</text>
+              <rect x="58" y="128" width="44" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="0.5"/><text x="80" y="135" font-size="4.5" fill="#94a3b8" text-anchor="middle">Date Range ▾</text>
+              <rect x="106" y="128" width="36" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="0.5"/><text x="124" y="135" font-size="4.5" fill="#94a3b8" text-anchor="middle">Region ▾</text>
+              <rect x="146" y="128" width="50" height="10" rx="5" fill="#2563eb"/><text x="171" y="135" font-size="4.5" fill="white" text-anchor="middle">Apply Filters</text>
+              <text x="265" y="135" font-size="4.5" fill="#38bdf8" text-anchor="end">↻ Real-time</text>
+            </svg>
+          </div>
           <div class="project-stats">
             <span class="project-stat stat-blue">Streamlit</span>
             <span class="project-stat stat-green">Plotly</span>
             <span class="project-stat stat-purple">Power BI</span>
+          </div>
+        </div>
+
+        <!-- AI Salary Dashboard -->
+        <div class="project-card card-purple">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-purple" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zm128-96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg></div>
+          </div>
+          <div class="project-name">AI &amp; Data Science Salary Intelligence</div>
+          <div class="project-desc">Interactive Tableau BI dashboard analyzing compensation trends across AI/Data Science roles globally — covering experience levels, remote work impact, and geographic salary distribution.</div>
+          <div class="project-preview">
+            <img src="https://raw.githubusercontent.com/Bhanupandavula/AI-Data-Science-Salary-Intelligence-Dashboard/main/Screenshot%202026-05-15%20142159.png" alt="AI &amp; Data Science Salary Intelligence Dashboard" loading="lazy"/>
+          </div>
+          <div class="project-stats">
+            <span class="project-stat stat-purple">Tableau</span>
+            <span class="project-stat stat-blue">Global Analysis</span>
+          </div>
+        </div>
+
+        <!-- Cyber Risk -->
+        <div class="project-card card-orange">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-orange" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg></div>
+          </div>
+          <div class="project-name">Cyber Risk AI Dashboard</div>
+          <div class="project-desc">ML-powered cybersecurity platform using Random Forest/XGBoost, Isolation Forest anomaly detection, composite risk scoring, and a React + ECharts SOC dashboard on 9,537 network sessions.</div>
+          <div class="project-preview">
+            <svg viewBox="0 0 280 158" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+              <rect width="280" height="158" fill="#0f172a" rx="5"/>
+              <rect width="280" height="22" fill="#1e293b" rx="5"/><rect x="0" y="17" width="280" height="5" fill="#1e293b"/>
+              <text x="10" y="14.5" font-size="6.5" fill="#f1f5f9" font-weight="700">CYBER RISK AI — SOC DASHBOARD</text>
+              <circle cx="261" cy="11" r="3.5" fill="#ef4444"/><text x="267" y="14" font-size="5" fill="#64748b">LIVE</text>
+              <rect x="8" y="26" width="82" height="68" rx="3" fill="#1e293b"/>
+              <text x="49" y="37" font-size="5.5" fill="#64748b" text-anchor="middle" font-weight="600">COMPOSITE RISK</text>
+              <path d="M 20 80 A 29 29 0 0 1 78 80" fill="none" stroke="#334155" stroke-width="7" stroke-linecap="round"/>
+              <path d="M 20 80 A 29 29 0 0 1 78 80" fill="none" stroke="#f59e0b" stroke-width="7" stroke-linecap="round" stroke-dasharray="91 91" stroke-dashoffset="22"/>
+              <text x="49" y="77" font-size="13" fill="#f1f5f9" text-anchor="middle" font-weight="700">68</text>
+              <text x="49" y="86" font-size="5" fill="#f59e0b" text-anchor="middle">MEDIUM RISK</text>
+              <rect x="95" y="26" width="177" height="68" rx="3" fill="#1e293b"/>
+              <text x="103" y="37" font-size="5.5" fill="#64748b" font-weight="600">MODEL PERFORMANCE</text>
+              <text x="103" y="49" font-size="5.5" fill="#94a3b8">Random Forest</text>
+              <rect x="103" y="52" width="148" height="5" rx="2" fill="#0f172a"/><rect x="103" y="52" width="130" height="5" rx="2" fill="#f59e0b"/>
+              <text x="254" y="57" font-size="5.5" fill="#f1f5f9" text-anchor="end" font-weight="700">0.876 AUC</text>
+              <text x="103" y="65" font-size="5.5" fill="#94a3b8">XGBoost F1</text>
+              <rect x="103" y="68" width="148" height="5" rx="2" fill="#0f172a"/><rect x="103" y="68" width="126" height="5" rx="2" fill="#fb923c"/>
+              <text x="254" y="73" font-size="5.5" fill="#f1f5f9" text-anchor="end" font-weight="700">0.854</text>
+              <text x="103" y="80" font-size="5.5" fill="#94a3b8">Cross-val AUC</text>
+              <rect x="103" y="83" width="148" height="5" rx="2" fill="#0f172a"/><rect x="103" y="83" width="133" height="5" rx="2" fill="#fbbf24"/>
+              <text x="254" y="88" font-size="5.5" fill="#f1f5f9" text-anchor="end" font-weight="700">0.891</text>
+              <rect x="8" y="98" width="82" height="42" rx="3" fill="#1e293b"/>
+              <text x="49" y="112" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">SESSIONS</text>
+              <text x="49" y="128" font-size="14" fill="#38bdf8" text-anchor="middle" font-weight="700">9,537</text>
+              <rect x="95" y="98" width="82" height="42" rx="3" fill="#1e293b"/>
+              <text x="136" y="112" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">ANOMALY RATE</text>
+              <text x="136" y="128" font-size="14" fill="#ef4444" text-anchor="middle" font-weight="700">4.4%</text>
+              <rect x="182" y="98" width="90" height="42" rx="3" fill="#1e293b"/>
+              <text x="227" y="110" font-size="5" fill="#64748b" text-anchor="middle" font-weight="600">RISK TIERS</text>
+              <rect x="190" y="114" width="18" height="8" rx="2" fill="#10b981"/><rect x="211" y="114" width="22" height="8" rx="2" fill="#f59e0b"/><rect x="236" y="114" width="14" height="8" rx="2" fill="#ef4444"/><rect x="253" y="114" width="12" height="8" rx="2" fill="#7c3aed"/>
+              <text x="199" y="129" font-size="4.5" fill="#64748b" text-anchor="middle">Low</text><text x="222" y="129" font-size="4.5" fill="#64748b" text-anchor="middle">Med</text><text x="243" y="129" font-size="4.5" fill="#64748b" text-anchor="middle">High</text><text x="259" y="129" font-size="4.5" fill="#64748b" text-anchor="middle">Crit</text>
+              <text x="10" y="150" font-size="5" fill="#334155">React · Apache ECharts · Python · Scikit-learn · XGBoost · Isolation Forest</text>
+            </svg>
+          </div>
+          <div class="project-stats">
+            <span class="project-stat stat-orange">0.876 AUC</span>
+            <span class="project-stat stat-blue">React + ML</span>
+          </div>
+        </div>
+
+        <!-- Supply Chain -->
+        <div class="project-card card-green">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-green" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor"><path d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></div>
+          </div>
+          <div class="project-name">Supply Chain Analytics Platform</div>
+          <div class="project-desc">End-to-end analytics on 180k real orders: XGBoost late-delivery classifier, Prophet demand forecasting with 6-month horizon, and supplier risk scoring via Streamlit dashboard.</div>
+          <div class="project-preview">
+            <svg viewBox="0 0 280 158" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+              <rect width="280" height="158" fill="#f8fafc" rx="5"/>
+              <rect width="280" height="22" fill="#10b981" rx="5"/><rect x="0" y="17" width="280" height="5" fill="#10b981"/>
+              <text x="10" y="14.5" font-size="6.5" fill="white" font-weight="700">SUPPLY CHAIN ANALYTICS — 180k ORDERS</text>
+              <rect x="8" y="26" width="124" height="84" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="16" y="37" font-size="5.5" fill="#6b7280" font-weight="600">LATE DELIVERY RATE</text>
+              <text x="16" y="50" font-size="5.5" fill="#374151">Standard Class</text>
+              <rect x="16" y="53" width="108" height="6" rx="2" fill="#f3f4f6"/><rect x="16" y="53" width="81" height="6" rx="2" fill="#ef4444" opacity="0.8"/>
+              <text x="128" y="58" font-size="5.5" fill="#374151" text-anchor="end">75%</text>
+              <text x="16" y="67" font-size="5.5" fill="#374151">Second Class</text>
+              <rect x="16" y="70" width="108" height="6" rx="2" fill="#f3f4f6"/><rect x="16" y="70" width="65" height="6" rx="2" fill="#f59e0b" opacity="0.8"/>
+              <text x="128" y="75" font-size="5.5" fill="#374151" text-anchor="end">60%</text>
+              <text x="16" y="84" font-size="5.5" fill="#374151">First Class</text>
+              <rect x="16" y="87" width="108" height="6" rx="2" fill="#f3f4f6"/><rect x="16" y="87" width="26" height="6" rx="2" fill="#10b981"/>
+              <text x="128" y="92" font-size="5.5" fill="#374151" text-anchor="end">24%</text>
+              <text x="16" y="101" font-size="5.5" fill="#374151">Same Day</text>
+              <rect x="16" y="104" width="108" height="6" rx="2" fill="#f3f4f6"/><rect x="16" y="104" width="9" height="6" rx="2" fill="#10b981"/>
+              <text x="128" y="109" font-size="5.5" fill="#374151" text-anchor="end">8%</text>
+              <rect x="138" y="26" width="134" height="84" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="146" y="37" font-size="5.5" fill="#6b7280" font-weight="600">XGBOOST CLASSIFIER</text>
+              <text x="146" y="50" font-size="5.5" fill="#374151">Precision</text>
+              <rect x="146" y="53" width="118" height="6" rx="2" fill="#f3f4f6"/><rect x="146" y="53" width="104" height="6" rx="2" fill="#10b981"/>
+              <text x="267" y="58" font-size="5.5" fill="#374151" text-anchor="end" font-weight="700">88%</text>
+              <text x="146" y="67" font-size="5.5" fill="#374151">Recall</text>
+              <rect x="146" y="70" width="118" height="6" rx="2" fill="#f3f4f6"/><rect x="146" y="70" width="99" height="6" rx="2" fill="#34d399"/>
+              <text x="267" y="75" font-size="5.5" fill="#374151" text-anchor="end" font-weight="700">84%</text>
+              <text x="146" y="84" font-size="5.5" fill="#374151">F1 Score</text>
+              <rect x="146" y="87" width="118" height="6" rx="2" fill="#f3f4f6"/><rect x="146" y="87" width="101" height="6" rx="2" fill="#6ee7b7"/>
+              <text x="267" y="92" font-size="5.5" fill="#374151" text-anchor="end" font-weight="700">0.86</text>
+              <rect x="146" y="100" width="118" height="10" rx="3" fill="#fef3c7"/>
+              <text x="205" y="107" font-size="5" fill="#b45309" text-anchor="middle" font-weight="600">55% overall orders arrive late</text>
+              <rect x="8" y="116" width="264" height="34" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="16" y="126" font-size="5.5" fill="#6b7280" font-weight="600">6-MONTH DEMAND FORECAST (Prophet)</text>
+              <defs><linearGradient id="scg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/><stop offset="100%" stop-color="#10b981" stop-opacity="0"/></linearGradient></defs>
+              <polygon points="22,144 50,141 78,142 106,137 134,132 162,134 190,127 218,130 246,123 272,119 272,148 22,148" fill="url(#scg1)"/>
+              <polyline points="22,144 50,141 78,142 106,137 134,132 162,134 190,127 218,130 246,123 272,119" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="268" y="121" font-size="4.5" fill="#10b981" font-weight="600">+40%</text>
+              <text x="268" y="127" font-size="4" fill="#6b7280">holiday</text>
+            </svg>
+          </div>
+          <div class="project-stats">
+            <span class="project-stat stat-green">88% Precision</span>
+            <span class="project-stat stat-blue">XGBoost+Prophet</span>
+          </div>
+        </div>
+
+        <!-- Airbnb EDA -->
+        <div class="project-card card-blue">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-blue" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" height="14" fill="currentColor"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></div>
+          </div>
+          <div class="project-name">Airbnb Austin EDA</div>
+          <div class="project-desc">Exploratory Data Analysis of Austin Airbnb listings — uncovering pricing trends, neighborhood distribution across top zip codes, availability patterns, and host behavior insights.</div>
+          <div class="project-preview">
+            <svg viewBox="0 0 280 158" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+              <rect width="280" height="158" fill="#f8fafc" rx="5"/>
+              <rect width="280" height="22" fill="#2563eb" rx="5"/><rect x="0" y="17" width="280" height="5" fill="#2563eb"/>
+              <text x="10" y="14.5" font-size="6.5" fill="white" font-weight="700">AIRBNB AUSTIN — EXPLORATORY DATA ANALYSIS</text>
+              <rect x="8" y="26" width="130" height="90" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="16" y="37" font-size="5.5" fill="#6b7280" font-weight="600">PRICE DISTRIBUTION ($/night)</text>
+              <line x1="16" y1="107" x2="130" y2="107" stroke="#e5e7eb" stroke-width="0.5"/>
+              <rect x="18" y="82" width="11" height="25" fill="#bfdbfe"/><rect x="31" y="64" width="11" height="43" fill="#93c5fd"/><rect x="44" y="55" width="11" height="52" fill="#60a5fa"/><rect x="57" y="57" width="11" height="50" fill="#3b82f6"/><rect x="70" y="67" width="11" height="40" fill="#2563eb"/><rect x="83" y="82" width="11" height="25" fill="#1d4ed8"/><rect x="96" y="92" width="11" height="15" fill="#1e40af"/><rect x="109" y="98" width="9" height="9" fill="#1e3a8a"/>
+              <line x1="65" y1="44" x2="65" y2="107" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,1"/>
+              <text x="67" y="49" font-size="4.5" fill="#ef4444" font-weight="600">Median $189</text>
+              <text x="22" y="114" font-size="4" fill="#9ca3af">$50</text><text x="57" y="114" font-size="4" fill="#9ca3af" text-anchor="middle">$150–200</text><text x="108" y="114" font-size="4" fill="#9ca3af">$500+</text>
+              <rect x="144" y="26" width="128" height="90" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="152" y="37" font-size="5.5" fill="#6b7280" font-weight="600">TOP ZIP CODES (listings)</text>
+              <text x="152" y="50" font-size="5.5" fill="#374151">78704</text>
+              <rect x="152" y="53" width="110" height="6" rx="2" fill="#f3f4f6"/><rect x="152" y="53" width="110" height="6" rx="2" fill="#2563eb"/>
+              <text x="265" y="58" font-size="5" fill="#374151" text-anchor="end" font-weight="700">Most</text>
+              <text x="152" y="67" font-size="5.5" fill="#374151">78702</text>
+              <rect x="152" y="70" width="110" height="6" rx="2" fill="#f3f4f6"/><rect x="152" y="70" width="79" height="6" rx="2" fill="#3b82f6"/>
+              <text x="265" y="75" font-size="5" fill="#374151" text-anchor="end" font-weight="700">High</text>
+              <text x="152" y="84" font-size="5.5" fill="#374151">78701</text>
+              <rect x="152" y="87" width="110" height="6" rx="2" fill="#f3f4f6"/><rect x="152" y="87" width="60" height="6" rx="2" fill="#60a5fa"/>
+              <text x="265" y="92" font-size="5" fill="#374151" text-anchor="end" font-weight="700">Mid</text>
+              <text x="152" y="101" font-size="5.5" fill="#374151">Others</text>
+              <rect x="152" y="104" width="110" height="6" rx="2" fill="#f3f4f6"/><rect x="152" y="104" width="44" height="6" rx="2" fill="#bfdbfe"/>
+              <text x="265" y="109" font-size="5" fill="#374151" text-anchor="end">Lower</text>
+              <rect x="8" y="122" width="61" height="28" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+              <text x="38" y="133" font-size="5" fill="#1d4ed8" text-anchor="middle" font-weight="600">MEDIAN</text><text x="38" y="144" font-size="11" fill="#1d4ed8" text-anchor="middle" font-weight="700">$189</text>
+              <rect x="74" y="122" width="61" height="28" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+              <text x="104" y="133" font-size="5" fill="#1d4ed8" text-anchor="middle" font-weight="600">HIGH AVAIL</text><text x="104" y="144" font-size="11" fill="#1d4ed8" text-anchor="middle" font-weight="700">25%</text>
+              <rect x="140" y="122" width="61" height="28" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+              <text x="170" y="133" font-size="5" fill="#1d4ed8" text-anchor="middle" font-weight="600">LISTINGS</text><text x="170" y="144" font-size="11" fill="#1d4ed8" text-anchor="middle" font-weight="700">10k+</text>
+              <rect x="206" y="122" width="66" height="28" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+              <text x="239" y="133" font-size="5" fill="#1d4ed8" text-anchor="middle" font-weight="600">LOCATION</text><text x="239" y="144" font-size="9" fill="#1d4ed8" text-anchor="middle" font-weight="700">Austin, TX</text>
+            </svg>
+          </div>
+          <div class="project-stats">
+            <span class="project-stat stat-blue">Austin, TX</span>
+            <span class="project-stat stat-green">Python EDA</span>
+          </div>
+        </div>
+
+        <!-- Water Quality -->
+        <div class="project-card card-purple">
+          <div class="project-card-top">
+            <div class="project-icon-wrap icon-bg-purple" style="margin-bottom:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="14" height="14" fill="currentColor"><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191 0h2c9.5 0 18.4 4.2 24.4 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192z"/></svg></div>
+          </div>
+          <div class="project-name">Water Quality Prediction</div>
+          <div class="project-desc">Machine learning model predicting water potability from physicochemical parameters — exploring classification algorithms, feature engineering, and data preprocessing for environmental data science.</div>
+          <div class="project-preview">
+            <svg viewBox="0 0 280 158" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+              <rect width="280" height="158" fill="#f8fafc" rx="5"/>
+              <rect width="280" height="22" fill="#7c3aed" rx="5"/><rect x="0" y="17" width="280" height="5" fill="#7c3aed"/>
+              <text x="10" y="14.5" font-size="6.5" fill="white" font-weight="700">WATER QUALITY PREDICTION — ML ANALYSIS</text>
+              <rect x="8" y="26" width="130" height="96" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="16" y="37" font-size="5.5" fill="#6b7280" font-weight="600">FEATURE IMPORTANCE</text>
+              <text x="16" y="50" font-size="5.5" fill="#374151">pH</text>
+              <rect x="16" y="53" width="114" height="5" rx="2" fill="#f3f4f6"/><rect x="16" y="53" width="100" height="5" rx="2" fill="#7c3aed"/>
+              <text x="16" y="66" font-size="5.5" fill="#374151">Hardness</text>
+              <rect x="16" y="69" width="114" height="5" rx="2" fill="#f3f4f6"/><rect x="16" y="69" width="86" height="5" rx="2" fill="#8b5cf6"/>
+              <text x="16" y="82" font-size="5.5" fill="#374151">Chloramines</text>
+              <rect x="16" y="85" width="114" height="5" rx="2" fill="#f3f4f6"/><rect x="16" y="85" width="78" height="5" rx="2" fill="#a78bfa"/>
+              <text x="16" y="98" font-size="5.5" fill="#374151">Turbidity</text>
+              <rect x="16" y="101" width="114" height="5" rx="2" fill="#f3f4f6"/><rect x="16" y="101" width="65" height="5" rx="2" fill="#c4b5fd"/>
+              <text x="16" y="114" font-size="5.5" fill="#374151">Sulfate</text>
+              <rect x="16" y="117" width="114" height="5" rx="2" fill="#f3f4f6"/><rect x="16" y="117" width="52" height="5" rx="2" fill="#ddd6fe"/>
+              <rect x="144" y="26" width="128" height="96" rx="3" fill="white" stroke="#e5e7eb" stroke-width="0.5"/>
+              <text x="208" y="37" font-size="5.5" fill="#6b7280" font-weight="600" text-anchor="middle">POTABILITY RESULT</text>
+              <circle cx="208" cy="78" r="28" fill="none" stroke="#f3f4f6" stroke-width="12"/>
+              <circle cx="208" cy="78" r="28" fill="none" stroke="#7c3aed" stroke-width="12" stroke-dasharray="68.7 108.7" stroke-dashoffset="44" transform="rotate(-90 208 78)"/>
+              <text x="208" y="75" font-size="9" fill="#111827" text-anchor="middle" font-weight="700">39%</text>
+              <text x="208" y="84" font-size="5" fill="#6b7280" text-anchor="middle">Potable</text>
+              <rect x="152" y="110" width="6" height="6" rx="1" fill="#7c3aed"/><text x="162" y="115" font-size="5" fill="#374151">Potable (39%)</text>
+              <rect x="205" y="110" width="6" height="6" rx="1" fill="#f3f4f6" stroke="#e5e7eb"/><text x="215" y="115" font-size="5" fill="#374151">Not Potable (61%)</text>
+              <rect x="8" y="128" width="264" height="22" rx="3" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="0.5"/>
+              <text x="144" y="141" font-size="5.5" fill="#6d28d9" text-anchor="middle" font-weight="600">9 Physicochemical Features · Binary Classification · Python · Scikit-learn</text>
+            </svg>
+          </div>
+          <div class="project-stats">
+            <span class="project-stat stat-purple">ML Classification</span>
+            <span class="project-stat stat-blue">Python</span>
           </div>
         </div>
 
@@ -513,7 +841,7 @@
           <div class="cert-icon-wrap icon-bg-green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12" height="12" fill="currentColor"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z"/></svg></div>
           <div>
             <div class="cert-name">Document Fraud Detection System</div>
-            <div class="cert-org">DAD Platform &nbsp;·&nbsp; 91% Precision &nbsp;·&nbsp; Xforia Inc. &nbsp;·&nbsp; 2024–2025</div>
+            <div class="cert-org">DAD Platform &nbsp;·&nbsp; 91% Precision &nbsp;·&nbsp; Xforia Inc. &nbsp;·&nbsp; 2025–2026</div>
           </div>
         </div>
 
@@ -524,7 +852,7 @@
 </div>
 
 <div class="footer">
-  &copy; 2025 Bhanu Kiran Pandavula &nbsp;·&nbsp; AI &amp; Data Engineer &nbsp;·&nbsp; Irving, TX
+  &copy; 2025 Bhanu Kiran Pandavula &nbsp;·&nbsp; AI &amp; Data Engineer &nbsp;·&nbsp; Richmond, Houston, TX
 </div>
 
 </body>
